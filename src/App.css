@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  padding: 16px 0;
+  font-weight: bold;
+  font-size: 24px;
+  color: black;
+}
+
+.menu-toggle-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+}
+
+.sidebar-mobile {
+  background: white;
+  text-align: center;
+}
+
+.sidebar-desktop {
+  background: white;
+  text-align: center;
+}
+
+.header {
+  background: white;
+  padding-left: 16px;
+}
+
+.content {
+  margin: 24px 16px;
+  padding: 24px;
+  background: white;
+}
+

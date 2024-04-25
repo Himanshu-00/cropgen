@@ -1,0 +1,29 @@
+.icon {
+    color: black; /* Default color */
+  }
+
+  .icon {
+    font-size: 20px; /* Default icon size */
+  }
+  
+  /* Larger icon size when sidebar is uncollapsed */
+  .sider-collapsed .ant-menu-item > .icon {
+    font-size: 30px;
+  }
+  
+  .icon.selected {
+    color: green; /* Color when selected */
+  }
+  
+  .icon:hover {
+    color: darkgreen; /* Color when hovered */
+  }
+  
+  .icon.selected:hover {
+    color: darkgreen; /* Color when selected and hovered */
+  }
+  
+  .icon:hover {
+    transform: scale(1.1); /* Magnifying effect when hovered */
+  }
+  
