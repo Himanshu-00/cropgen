@@ -77,7 +77,7 @@ const Sidebar = () => {
           return null;
       }
     } else {
-      return null;
+      return <MyComponent/>;
     }
   };
   
