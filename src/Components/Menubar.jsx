@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCircleOutlined,
   InfoCircleOutlined } from '@ant-design/icons';
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Menu } from 'antd';
 
 import MyComponent from './CropAnalytics';
 
@@ -49,16 +49,16 @@ const Sidebar = () => {
   const menuItems = [
     { key: 'CropAnalytics', icon: <BarChartOutlined />, label: 'Crop Analytics' },
     { key: 'AddCrop', icon: <PlusCircleOutlined />, label: 'Add Crop' },
-    { key: 'Form Manager', icon: <PlusCircleOutlined />, label: 'Form Manager' },
+    { key: 'Form Manager', icon: <FormOutlined />, label: 'Form Manager' },
     { key: 'Crop Information', icon: <PlusCircleOutlined />, label: 'Crop Information' },
     { key: 'Disease Detection', icon: <PlusCircleOutlined />, label: 'Disease Detection' },
     { key: 'Weather Information', icon: <PlusCircleOutlined />, label: 'Weather Information' },
-    { key: 'Farm Add', icon: <PlusCircleOutlined />, label: 'Farm Add' },
+    { key: 'Farm Add', icon: <InfoCircleOutlined />, label: 'Farm Add' },
     { key: 'Scouting', icon: <PlusCircleOutlined />, label: 'Scouting' },
     { key: 'Farm Manager', icon: <PlusCircleOutlined />, label: 'Farm Manager' },
-    { key: 'Weather Data', icon: <PlusCircleOutlined />, label: 'Weather Data' },
+    { key: 'Weather Data', icon: <PieChartTwoTone />, label: 'Weather Data' },
     { key: 'Crop Advisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
-    { key: 'Crop Somethig', icon: <PlusCircleOutlined />, label: 'Crop Somethig' },
+    { key: 'Crop Somethig', icon: <UploadOutlined />, label: 'Crop Somethig' },
     { key: 'Fertilizers', icon: <PlusCircleOutlined />, label: 'Fertilizers' },
     { key: 'Last Soil Productivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
 
