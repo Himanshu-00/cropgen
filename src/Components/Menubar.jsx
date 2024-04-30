@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCircleOutlined,
   InfoCircleOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-
+import MapData from './MapsView';
 import MyComponent from './CropAnalytics';
 
 
@@ -135,154 +135,18 @@ const Sidebar = () => {
               </Menu.Item>
             ))}
 
-              {/* <Menu.Item
-              key={1}
-              content={profileContent} 
-              overlayStyle={{ width: 200 }}>
-              <BarChartOutlined />
-              {!collapsed && <span style={{ marginLeft: 8 }}>Crop Analytics</span>}
-            </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={2}
-                  content={profileContent} 
-                  overlayStyle={{ width: 200 }}>
-                  <PlusCircleOutlined />
-                  {!collapsed && <span style={{ marginLeft: 8 }}>Add crop</span>}
-                </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={3}
-                  content={profileContent} 
-                  overlayStyle={{ width: 200 }}>
-              <FormOutlined />
-              {!collapsed && <span style={{ marginLeft: 8 }}>Form Manager</span>}
-               </Menu.Item>
-            
-
-           
-              <Menu.Item  
-              key={4}
-                  content={profileContent} 
-                  title="Icon 3" 
-                  overlayStyle={{ width: 200 }}>
-               <InfoCircleOutlined /> 
-               {!collapsed && <span style={{ marginLeft: 8 }}>Crop Information</span>} 
-              </Menu.Item>
-            
-
-          
-              <Menu.Item 
-              key={5}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Disease Detection</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={6}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Scouting</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={7}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Farm Manager</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={8}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Weather Data</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={9}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Crop Advisory</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={10}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200}}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8}}>Crop Something(No Idea)</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={11}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Fertilizer</span>}
-              </Menu.Item>
-            
-
-           
-              <Menu.Item 
-              key={12}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Last Soil Productivity Map</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-              key={13}
-                  content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Farm Add</span>}
-              </Menu.Item>
-            
-
-            
-              <Menu.Item 
-                   key={14}
-                   content={profileContent} 
-                   overlayStyle={{ width: 200 }}>
-                   <UploadOutlined />
-                   {!collapsed && <span style={{ marginLeft: 8 }}>Weather Information</span>}
-              </Menu.Item> */}
            </Menu>
         </Sider>
 
-        
         )}
-        
+
         <Layout>
      <div style={{ display: barstyle }}>
         {renderComponent()}
       </div>
+     </Layout>
+     <Layout>
+      <MapData/>
      </Layout>
          
     </Layout>
