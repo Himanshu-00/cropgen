@@ -141,7 +141,7 @@ const Sidebar = () => {
         )}
 
         <Layout>
-     <div style={{ display: barstyle }}>
+     <div style={{ display: collapsed? 'none': 'block' }}>
         {renderComponent()}
       </div>
      </Layout>
