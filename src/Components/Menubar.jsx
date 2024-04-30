@@ -12,7 +12,7 @@ const { Sider} = Layout;
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(true); 
   const [isMobile, setIsMobile] = useState(false);
-  const [ setBarStyle] = useState('block');
+  const [barstyle, setBarStyle] = useState('block');
   const [selectedMenu, setSelectedMenu] = useState(null);
 
   
@@ -141,7 +141,7 @@ const Sidebar = () => {
         )}
 
         <Layout>
-     <div style={{ display: collapsed? 'none': 'block' }}>
+     <div style={{ display: barstyle }}>
         {renderComponent()}
       </div>
      </Layout>
