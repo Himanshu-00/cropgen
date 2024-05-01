@@ -30,7 +30,7 @@ const Sidebar = () => {
 
   const handleMenuClick = (key) => {
 
-    setSelectedMenu(key);
+    setSelectedMenu(selectedMenu === key ? null : key);
     
   };
   
@@ -72,7 +72,7 @@ const Sidebar = () => {
       switch (selectedMenu) {
         case 'CropAnalytics':
           return <MyComponent />;
-        // Add cases for other menu items if needed
+        // Cases for other menu items
         default:
           return null;
       }
@@ -140,14 +140,21 @@ const Sidebar = () => {
 
         )}
 
-        <Layout>
-     <div style={{ display: barstyle }}>
-        {renderComponent()}
-      </div>
-     </Layout>
-     <Layout>
-      <MapData/>
-     </Layout>
+        {/* Conditional rendering */}
+        {selectedMenu ? (
+      <Layout>
+        <div style={{ display: 'flex', height: '100vh' }}>
+          <div style={{ display: barstyle, flex: '1', overflow: 'auto' }}>
+            {renderComponent()}
+          </div>
+          <div style={{ flex: '1'}}>
+            <MapData style={{ width: '100%', height: '100%'}} />
+          </div>
+        </div>
+      </Layout>
+    ) : (
+      <MapData style={{ width: '100%', height: '100vh' }} />
+    )}
          
     </Layout>
     
