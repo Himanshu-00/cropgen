@@ -43,3 +43,7 @@
 .sidebar:hover {
   cursor: pointer;
 }
+
+.menu-label {
+  margin-left: 8px;
+}
