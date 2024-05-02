@@ -59,7 +59,6 @@ const Sidebar = () => {
     { key: 'Weather Data', icon: <PieChartTwoTone />, label: 'Weather Data' },
     { key: 'Crop Advisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
     { key: 'Soil Analysis', icon: <UploadOutlined />, label: 'Crop Somethig' },
-    { key: 'Fertilizers', icon: <PlusCircleOutlined />, label: 'Fertilizers' },
     { key: 'Last Soil Productivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
 
 
