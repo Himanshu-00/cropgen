@@ -98,13 +98,14 @@ const Sidebar = () => {
               {collapsed ? 'C' : 'CropGen'}
             </div>
             {/*Menu Items*/}
-            <Menu mode="inline" defaultSelectedKeys={['1']}>
-            {menuItems.map(item => (
-              <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)} overlaystyle={{ width: 200 }}>
-                {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-              </Menu.Item>
-            ))}
-          </Menu>
+            <Menu mode="inline" selectedKeys={[selectedMenu]}>
+              {menuItems.map(item => (
+                <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
+                  {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
+                </Menu.Item>
+              ))}
+            </Menu>
+
           </Sider>
           </>
       )}
@@ -126,15 +127,13 @@ const Sidebar = () => {
             {collapsed ? 'C' : 'CropGen'}
           </div>
           <Menu mode="inline" selectedKeys={[selectedMenu]}>
-           
-          {menuItems.map(item => (
-              <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
-                {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-              </Menu.Item>
-            ))}
-
-           </Menu>
-        </Sider>
+              {menuItems.map(item => (
+                <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
+                  {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
+                </Menu.Item>
+              ))}
+            </Menu>
+               </Sider>
 
         )}
 
