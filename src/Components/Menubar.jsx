@@ -58,7 +58,7 @@ const Sidebar = () => {
     { key: 'Farm Manager', icon: <PlusCircleOutlined />, label: 'Farm Manager' },
     { key: 'Weather Data', icon: <PieChartTwoTone />, label: 'Weather Data' },
     { key: 'Crop Advisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
-    { key: 'Crop Somethig', icon: <UploadOutlined />, label: 'Crop Somethig' },
+    { key: 'Soil Analysis', icon: <UploadOutlined />, label: 'Crop Somethig' },
     { key: 'Fertilizers', icon: <PlusCircleOutlined />, label: 'Fertilizers' },
     { key: 'Last Soil Productivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
 
@@ -100,7 +100,7 @@ const Sidebar = () => {
             {/*Menu Items*/}
             <Menu mode="inline" defaultSelectedKeys={['1']}>
             {menuItems.map(item => (
-              <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)} overlayStyle={{ width: 200 }}>
+              <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)} overlaystyle={{ width: 200 }}>
                 {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
               </Menu.Item>
             ))}
