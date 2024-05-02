@@ -70,7 +70,7 @@ const Sidebar = () => {
     if (selectedMenu) {
       switch (selectedMenu) {
         case 'CropAnalytics':
-          return collapsed && <MyComponent />;
+          return <MyComponent />;
         // Cases for other menu items
         default:
           return null;
