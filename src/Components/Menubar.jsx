@@ -9,7 +9,7 @@ import MyComponent from './CropAnalytics';
 
 const { Sider} = Layout;
 
-const Sidebar = () => {
+const Menubar = () => {
   const [collapsed, setCollapsed] = useState(true); 
   const [isMobile, setIsMobile] = useState(false);
   const [barstyle, setBarStyle] = useState('block');
@@ -140,12 +140,15 @@ const Sidebar = () => {
         {selectedMenu ? (
       <Layout>
         <div style={{ display: 'flex', height: '100vh' }}>
-          <div style={{ display: barstyle, flex: '1', overflow: 'auto' }}>
-            {renderComponent()}
-          </div>
+         
           <div style={{ flex: '1'}}>
             <MapData style={{ width: '100%', height: '100%'}} />
           </div>
+
+          <div style={{ display: barstyle, flex: '1', overflow: 'auto' }}>
+            {renderComponent()}
+          </div>
+          
         </div>
       </Layout>
     ) : (
@@ -157,4 +160,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Menubar;
