@@ -122,7 +122,7 @@ const Menubar = () => {
             boxShadow: '2px 0 6px rgba(0, 21, 41, 0.08)'
           }}
         >
-          <div className="logo">
+          <div className="logo" style={{padding: '10px 0', textAlign: 'center' }}>
             {collapsed ? 'C' : 'CropGen'}
           </div>
           <Menu mode="inline" selectedKeys={[selectedMenu]}>

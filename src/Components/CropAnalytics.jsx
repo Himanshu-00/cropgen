@@ -5,6 +5,7 @@ import Plot from 'react-plotly.js';
 
 
 
+
 const SoilMoistureTemperatureGraph = () => {
   const [showSoilMoisture] = useState(true);
   const [showTemperature] = useState(true);
@@ -110,30 +111,6 @@ const CircularIndicator = ({percent, label}) => {
     );
   };
 
-const RectangleCard = () => {
- 
-
-  return (
-    <Card
-      hoverable
-      title="Satelite Data"
-      style={{
-        width: '94%',
-        height: '300px',
-        margin: '40px auto',
-        backgroundColor: '#ffffff',
-        borderRadius: 45,
-        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-        overflow: 'hidden',
-        position: 'relative'
-      }}
-    >
-       <img src="https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-1/soil_moisture_estimation/fig/Vijayawada_India.jpg" alt="Placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-
-    </Card>
-  );
-};
-
 const SideBySideRectangleCards = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-evenly', margin: '45px 10px' }}>
@@ -186,7 +163,6 @@ const FullScreenCard = () => {
 const MyComponent = () => {
   return (
     <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', padding: '10px', borderRadius: 45 }}>
-      <RectangleCard />
       <CircularCards />
       <SideBySideRectangleCards />
       <FullScreenCard />
