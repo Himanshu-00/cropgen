@@ -33,7 +33,7 @@ const Login = () => {
       {error && <div className="error-message">{error}</div>}
       <button className="login-button" onClick={handleLogin}>Login</button>
       {/* Add your icon here */}
-      <img src="your-icon-path.png" alt="icon" className="icon" />
+
     </div>
   );
 };
