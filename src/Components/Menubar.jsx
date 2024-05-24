@@ -4,6 +4,8 @@ import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCi
 import { Layout, Menu } from 'antd';
 import MapData from './MapsView';
 import MyComponent from './CropAnalytics';
+import '../App.css';
+
 
 
 
