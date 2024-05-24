@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCircleOutlined,
-  InfoCircleOutlined } from '@ant-design/icons';
+import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCircleOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import MapData from './MapsView';
 import MyComponent from './CropAnalytics';
 import '../App.css';
 
-
-
-
-const { Sider} = Layout;
+const { Sider } = Layout;
 
 const Menubar = () => {
-  const [collapsed, setCollapsed] = useState(true); 
+  const [collapsed, setCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [barstyle, setBarStyle] = useState('block');
+  const [barStyle, setBarStyle] = useState('block');
   const [selectedMenu, setSelectedMenu] = useState(null);
-
-  
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -27,26 +21,23 @@ const Menubar = () => {
   }, []);
 
   useEffect(() => {
-    handwidth();
+    toggleBarStyle();
   }, [collapsed]);
 
   const handleMenuClick = (key) => {
-
     setSelectedMenu(selectedMenu === key ? null : key);
-    
   };
-  
-  
-  const handwidth = () => {
+
+  const toggleBarStyle = () => {
     setBarStyle((prevStyle) => (prevStyle === 'block' ? 'none' : 'block'));
   };
 
+  // Consolidated Hover Logic
   const handleSidebarHover = () => {
     if (!isMobile) {
       setCollapsed(!collapsed);
     }
   };
-  
 
   const menuItems = [
     { key: 'CropAnalytics', icon: <BarChartOutlined />, label: 'Crop Analytics' },
@@ -62,12 +53,8 @@ const Menubar = () => {
     { key: 'Crop Advisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
     { key: 'Soil Analysis', icon: <UploadOutlined />, label: 'Soil Analysis' },
     { key: 'Last Soil Productivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
-
-
   ];
 
-  
-  
   const renderComponent = () => {
     if (selectedMenu) {
       switch (selectedMenu) {
@@ -77,88 +64,51 @@ const Menubar = () => {
         default:
           return null;
       }
-    } 
+    }
   };
-  
-  
-
-  
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      {isMobile && (
-        <>
-          <Sider
-            collapsible
-            collapsed={collapsed}
-            onCollapse={setCollapsed}
-            className="Menubar"
-            theme='light'
-          >
-            <div className="logo">
-              {collapsed ? 'C' : 'CropGen'}
-            </div>
-            {/*Menu Items*/}
-            <Menu mode="inline" selectedKeys={[selectedMenu]}>
-              {menuItems.map(item => (
-                <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
-                  {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-                </Menu.Item>
-              ))}
-            </Menu>
-
-          </Sider>
-          </>
-      )}
-      {!isMobile && (
-        <Sider
-          collapsible
-          trigger={null}
-          collapsed={collapsed}
-          onCollapse={setCollapsed}
-          className="sidebar"
-          onMouseEnter={handleSidebarHover}
-          onMouseLeave={handleSidebarHover}
-          theme='light'
-          style={{
-            boxShadow: '2px 0 6px rgba(0, 21, 41, 0.08)'
-          }}
-        >
-          <div className="logo" style={{padding: '10px 0', textAlign: 'center' }}>
-            {collapsed ? 'C' : 'CropGen'}
-          </div>
-          <Menu mode="inline" selectedKeys={[selectedMenu]}>
-              {menuItems.map(item => (
-                <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
-                  {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-                </Menu.Item>
-              ))}
-            </Menu>
-               </Sider>
-
-        )}
-
-        {/* Conditional rendering */}
-        {selectedMenu ? (
-      <Layout>
-        <div style={{ display: 'flex', height: '100vh' }}>
-         
-          <div style={{ flex: '1'}}>
-            <MapData style={{ width: '100%', height: '100%'}} />
-          </div>
-
-          <div style={{ display: barstyle, flex: '1', overflow: 'auto' }}>
-            {renderComponent()}
-          </div>
-          
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        className="Menubar"
+        theme="light"
+        // Apply hover logic only if not mobile
+        onMouseEnter={!isMobile ? handleSidebarHover : undefined}
+        onMouseLeave={!isMobile ? handleSidebarHover : undefined}
+        style={{
+          boxShadow: isMobile ? 'none' : '2px 0 6px rgba(0, 21, 41, 0.08)', // Improved Styling
+        }}
+      >
+        <div className="logo" style={{ padding: '10px 0', textAlign: 'center' }}>
+          {collapsed ? 'C' : 'CropGen'}
         </div>
+        <Menu mode="inline" selectedKeys={[selectedMenu]}>
+          {menuItems.map((item) => (
+            <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
+              {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
+            </Menu.Item>
+          ))}
+        </Menu>
+      </Sider>
+
+      <Layout>
+        {selectedMenu ? (
+          <div style={{ display: 'flex', height: '100vh' }}>
+            <div style={{ flex: '1' }}>
+              <MapData style={{ width: '100%', height: '100%' }} />
+            </div>
+            <div style={{ display: barStyle, flex: '1', overflow: 'auto' }}>
+              {renderComponent()}
+            </div>
+          </div>
+        ) : (
+          <MapData style={{ width: '100%', height: '100vh' }} />
+        )}
       </Layout>
-    ) : (
-      <MapData style={{ width: '100%', height: '100vh' }} />
-    )}
-         
     </Layout>
-    
   );
 };
 
