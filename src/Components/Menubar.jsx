@@ -6,11 +6,10 @@ import '../App.css';
 
 const { Sider } = Layout;
 
-const Menubar = () => {
+const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   const [collapsed, setCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [barStyle, setBarStyle] = useState('block');
-  const [selectedMenu, setSelectedMenu] = useState(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -73,7 +72,7 @@ const Menubar = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
-        trigger= {null}
+        trigger={null}
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
