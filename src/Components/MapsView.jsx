@@ -28,12 +28,12 @@ const MapData = () => {
       click: (e) => {
         if (isAddingMarkers) {
           const { lat, lng } = e.latlng;
-          setMarkers(currentMarkers => {
+          setMarkers((currentMarkers) => {
             const newMarkers = [...currentMarkers, { lat, lng }];
             return newMarkers.length > 12 ? newMarkers.slice(-12) : newMarkers;
           });
         }
-      }
+      },
     });
     return null;
   };
@@ -53,7 +53,7 @@ const MapData = () => {
           center={[51.505, -0.09]}
           zoom={13}
           style={{ height: '100%', width: '100%' }}
-          whenCreated={mapInstance => { mapRef.current = mapInstance }}
+          whenCreated={(mapInstance) => { mapRef.current = mapInstance; }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -61,26 +61,22 @@ const MapData = () => {
           />
           {markers.map((marker, idx) => (
             <Marker key={idx} position={[marker.lat, marker.lng]} icon={customMarkerIcon}>
-              <Popup>A pretty CSS3 popup.<br /> Easily customizable.</Popup>
+              <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
             </Marker>
           ))}
-          {markers.length > 0 && <Polygon positions={markers.map(marker => [marker.lat, marker.lng])} color="purple" />}
+          {markers.length > 0 && <Polygon positions={markers.map((marker) => [marker.lat, marker.lng])} color="purple" />}
           <Markers />
           <ResizeHandler />
         </MapContainer>
-        <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <Switch 
+        <div className="map-controls">
+          <Switch
             checked={isAddingMarkers}
-            checkedChildren="Disable Adding" 
-            unCheckedChildren="Enable Adding" 
-            onChange={checked => setIsAddingMarkers(checked)}
+            checkedChildren="Disable Adding"
+            unCheckedChildren="Enable Adding"
+            onChange={(checked) => setIsAddingMarkers(checked)}
             style={{ marginBottom: 10 }}
           />
-          <Button
-            onClick={() => setMarkers([])}
-          >
-            Delete Markers
-          </Button>
+          <Button onClick={() => setMarkers([])}>Delete Markers</Button>
         </div>
       </Content>
     </Layout>
