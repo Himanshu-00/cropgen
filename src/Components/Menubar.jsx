@@ -24,7 +24,7 @@ const Menubar = () => {
   }, [collapsed]);
 
   const handleMenuClick = (key) => {
-    setSelectedMenu(selectedMenu === key ? null : key);
+    setSelectedMenu((prevKey) => (prevKey === key ? null : key));
   };
 
   const toggleBarStyle = () => {
@@ -90,12 +90,12 @@ const Menubar = () => {
           {collapsed ? 'C' : 'CropGen'}
         </div>
         <Menu mode="inline" selectedKeys={[selectedMenu]} onClick={({ key }) => handleMenuClick(key)}>
-  {menuItems.map((item) => (
-    <Menu.Item key={item.key} icon={item.icon}>
-      {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-    </Menu.Item>
-  ))}
-</Menu>
+          {menuItems.map((item) => (
+            <Menu.Item key={item.key} icon={item.icon}>
+              {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
+            </Menu.Item>
+          ))}
+        </Menu>
       </Sider>
 
       <Layout>
