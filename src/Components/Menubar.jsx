@@ -89,13 +89,13 @@ const Menubar = () => {
         <div className="logo" style={{ padding: '10px 0', textAlign: 'center' }}>
           {collapsed ? 'C' : 'CropGen'}
         </div>
-        <Menu mode="inline" selectedKeys={[selectedMenu]}>
-          {menuItems.map((item) => (
-            <Menu.Item key={item.key} icon={item.icon} onClick={() => handleMenuClick(item.key)}>
-              {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
-            </Menu.Item>
-          ))}
-        </Menu>
+        <Menu mode="inline" selectedKeys={[selectedMenu]} onClick={({ key }) => handleMenuClick(key)}>
+  {menuItems.map((item) => (
+    <Menu.Item key={item.key} icon={item.icon}>
+      {!collapsed && <span style={{ marginLeft: 8 }}>{item.label}</span>}
+    </Menu.Item>
+  ))}
+</Menu>
       </Sider>
 
       <Layout>
