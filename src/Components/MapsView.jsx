@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Layout, Switch, Button } from 'antd';
-import { MapContainer, TileLayer, Marker, Popup, Polygon, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polygon, useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
+import '../App.css'; // Ensure to include your custom CSS
 
 const { Content } = Layout;
 
 const MapData = () => {
   const [markers, setMarkers] = useState([]);
   const [isAddingMarkers, setIsAddingMarkers] = useState(false);
+  const mapRef = useRef();
 
   const customMarkerIcon = new L.Icon({
     iconUrl: markerIcon,
@@ -37,10 +38,23 @@ const MapData = () => {
     return null;
   };
 
+  const ResizeHandler = () => {
+    const map = useMap();
+    useEffect(() => {
+      map.invalidateSize();
+    }, [map]);
+    return null;
+  };
+
   return (
-    <Layout>
-      <Content style={{ height: '100vh' }}>
-        <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '100%' }}>
+    <Layout style={{ height: '100vh' }}>
+      <Content style={{ height: '100%', position: 'relative' }}>
+        <MapContainer
+          center={[51.505, -0.09]}
+          zoom={13}
+          style={{ height: '100%', width: '100%' }}
+          whenCreated={mapInstance => { mapRef.current = mapInstance }}
+        >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
@@ -50,24 +64,23 @@ const MapData = () => {
               <Popup>A pretty CSS3 popup.<br /> Easily customizable.</Popup>
             </Marker>
           ))}
-          <Polygon positions={markers.map(marker => [marker.lat, marker.lng])} color="purple" />
+          {markers.length > 0 && <Polygon positions={markers.map(marker => [marker.lat, marker.lng])} color="purple" />}
           <Markers />
+          <ResizeHandler />
         </MapContainer>
-        <div style={{ position: 'absolute', top: 0, right: 10, zIndex: 1000 }}>
-        <Switch 
-          checked={isAddingMarkers}
-          checkedChildren="Disable Adding" 
-          unCheckedChildren="Enable Adding" 
-          onChange={checked => setIsAddingMarkers(checked)}
-          style={{position: 'absolute', top: 15}}
-          
-        />
-         <Button
-          onClick={() => setMarkers([])}
-          style={{marginTop: 50}}
-        >
-          Delete Markers
-        </Button>
+        <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          <Switch 
+            checked={isAddingMarkers}
+            checkedChildren="Disable Adding" 
+            unCheckedChildren="Enable Adding" 
+            onChange={checked => setIsAddingMarkers(checked)}
+            style={{ marginBottom: 10 }}
+          />
+          <Button
+            onClick={() => setMarkers([])}
+          >
+            Delete Markers
+          </Button>
         </div>
       </Content>
     </Layout>

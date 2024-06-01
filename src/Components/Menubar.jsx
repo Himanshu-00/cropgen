@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { UploadOutlined, PieChartTwoTone, BarChartOutlined, FormOutlined, PlusCircleOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import MapData from './MapsView';
+import { Layout, Menu, Card } from 'antd';
 import MyComponent from './CropAnalytics';
 import '../App.css';
 
@@ -59,7 +58,11 @@ const Menubar = () => {
     if (selectedMenu) {
       switch (selectedMenu) {
         case 'CropAnalytics':
-          return <MyComponent />;
+          return (
+            <Card title="Crop Analytics" style={{ width: '100%', height: '100%' }}>
+              <MyComponent />
+            </Card>
+          );
         // Cases for other menu items
         default:
           return null;
@@ -70,6 +73,7 @@ const Menubar = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
+        trigger= {null}
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
@@ -97,16 +101,11 @@ const Menubar = () => {
       <Layout>
         {selectedMenu ? (
           <div style={{ display: 'flex', height: '100vh' }}>
-            <div style={{ flex: '1' }}>
-              <MapData style={{ width: '100%', height: '100%' }} />
-            </div>
             <div style={{ display: barStyle, flex: '1', overflow: 'auto' }}>
               {renderComponent()}
             </div>
           </div>
-        ) : (
-          <MapData style={{ width: '100%', height: '100vh' }} />
-        )}
+        ) : null}
       </Layout>
     </Layout>
   );
