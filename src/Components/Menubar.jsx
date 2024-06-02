@@ -61,8 +61,8 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
         case 'CropAnalytics':
           return (
             <Card title="Crop Analytics" style={{ width: '100%', height: '100%' }}>
+               console.log(`Selected menu: ${selectedMenu}`);
               <MyComponent/>
-              console.log(`Selected menu: ${selectedMenu}`);
             </Card>
           );
         // Cases for other menu items
