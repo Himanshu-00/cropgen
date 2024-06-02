@@ -41,17 +41,17 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   const menuItems = [
     { key: 'CropAnalytics', icon: <BarChartOutlined />, label: 'Crop Analytics' },
     { key: 'AddCrop', icon: <PlusCircleOutlined />, label: 'Add Crop' },
-    { key: 'Form Manager', icon: <FormOutlined />, label: 'Form Manager' },
-    { key: 'Crop Information', icon: <PlusCircleOutlined />, label: 'Crop Information' },
-    { key: 'Disease Detection', icon: <PlusCircleOutlined />, label: 'Disease Detection' },
-    { key: 'Weather Information', icon: <PlusCircleOutlined />, label: 'Weather Information' },
-    { key: 'Farm Add', icon: <InfoCircleOutlined />, label: 'Farm Add' },
+    { key: 'FormManager', icon: <FormOutlined />, label: 'Form Manager' },
+    { key: 'CropInformation', icon: <PlusCircleOutlined />, label: 'Crop Information' },
+    { key: 'DiseaseDetection', icon: <PlusCircleOutlined />, label: 'Disease Detection' },
+    { key: 'WeatherInformation', icon: <PlusCircleOutlined />, label: 'Weather Information' },
+    { key: 'FarmAdd', icon: <InfoCircleOutlined />, label: 'Farm Add' },
     { key: 'Scouting', icon: <PlusCircleOutlined />, label: 'Scouting' },
-    { key: 'Farm Manager', icon: <PlusCircleOutlined />, label: 'Farm Manager' },
-    { key: 'Weather Data', icon: <PieChartTwoTone />, label: 'Weather Data' },
-    { key: 'Crop Advisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
-    { key: 'Soil Analysis', icon: <UploadOutlined />, label: 'Soil Analysis' },
-    { key: 'Last Soil Productivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
+    { key: 'FarmManager', icon: <PlusCircleOutlined />, label: 'Farm Manager' },
+    { key: 'WeatherData', icon: <PieChartTwoTone />, label: 'Weather Data' },
+    { key: 'CropAdvisory', icon: <PlusCircleOutlined />, label: 'Crop Advisory' },
+    { key: 'SoilAnalysis', icon: <UploadOutlined />, label: 'Soil Analysis' },
+    { key: 'LastSoilProductivity', icon: <PlusCircleOutlined />, label: 'Last Soil Productivity' },
   ];
 
   const renderComponent = () => {

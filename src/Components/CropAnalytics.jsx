@@ -159,8 +159,8 @@ const Maps = () => (
 );
 
 const MyComponent = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', backgroundColor: 'rgba(255, 255, 255, 0.2)', padding: '10px', borderRadius: 45 }}>
-    <div style={{ flex: '1', display: 'flex', gap: '10px', height: '100%' }}>
+  <div>
+    <div style={{ display: 'flex', gap: '10px', height: '100%' }}>
       <Maps />
       <div style={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <CircularCards />
