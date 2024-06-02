@@ -55,13 +55,14 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   ];
 
   const renderComponent = () => {
-    console.log(`Selected menu: ${selectedMenu}`);
+   
     if (selectedMenu) {
       switch (selectedMenu) {
         case 'CropAnalytics':
           return (
             <Card title="Crop Analytics" style={{ width: '100%', height: '100%' }}>
               <MyComponent/>
+              console.log(`Selected menu: ${selectedMenu}`);
             </Card>
           );
         // Cases for other menu items
