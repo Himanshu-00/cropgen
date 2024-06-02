@@ -31,11 +31,11 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   };
 
   // Consolidated Hover Logic
-  const handleSidebarHover = () => {
-    if (!isMobile) {
-      setCollapsed(!collapsed);
-    }
-  };
+  // const handleSidebarHover = () => {
+  //   if (!isMobile) {
+  //     setCollapsed(!collapsed);
+  //   }
+  // };
 
   const menuItems = [
     { key: 'CropAnalytics', icon: <BarChartOutlined />, label: 'Crop Analytics' },
@@ -79,8 +79,8 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
         className="Menubar"
         theme="light"
         // Apply hover logic only if not mobile
-        onMouseEnter={!isMobile ? handleSidebarHover : undefined}
-        onMouseLeave={!isMobile ? handleSidebarHover : undefined}
+        // onMouseEnter={!isMobile ? handleSidebarHover : undefined}
+        // onMouseLeave={!isMobile ? handleSidebarHover : undefined}
         style={{
           boxShadow: isMobile ? 'none' : '2px 0 6px rgba(0, 21, 41, 0.08)', // Improved Styling
         }}
