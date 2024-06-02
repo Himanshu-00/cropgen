@@ -23,6 +23,7 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   }, [collapsed]);
 
   const handleMenuClick = (key) => {
+    console.log(`Menu clicked: ${key}`);
     setSelectedMenu((prevKey) => (prevKey === key ? null : key));
   };
 
@@ -54,6 +55,7 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   ];
 
   const renderComponent = () => {
+    console.log(`Selected menu: ${selectedMenu}`);
     if (selectedMenu) {
       switch (selectedMenu) {
         case 'CropAnalytics':
