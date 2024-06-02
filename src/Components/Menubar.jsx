@@ -75,7 +75,7 @@ const Menubar = ({ selectedMenu, setSelectedMenu }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider
-        trigger={null}
+        trigger
         collapsible
         collapsed={collapsed}
         onCollapse={setCollapsed}
